@@ -5,10 +5,7 @@
             <img src="//dmknzb5g03rss.cloudfront.net/free-shipping-free-returns-icon.jpg" alt="eSaleRugs Tagline" />
         </div>
         <ul id="custOptions" class="clearfix">
-            <li><a href="">Order Status</a></li>
-            <li><a href="">Wishlist</a></li>
-            <li><a href="">Account</a></li>
-            <li><a href="">1-866-647-3965 (24/7)</a></li>
+            <li v-for="option in custOptions"><a :href="option.href">{{option.title}}</a></li>
         </ul>
         <a id="cart" href="">
             <font-awesome-icon class="font-18" icon="shopping-cart"></font-awesome-icon>
@@ -16,15 +13,7 @@
         </a>
         <nav>
             <ul id="topNav">
-                <li><a href="">Persian</a></li>
-                <li><a href="">Oriental</a></li>
-                <li><a href="">Clearance</a></li>
-                <li><a href="">Modern</a></li>
-                <li><a href="">Natural</a></li>
-                <li><a href="">Outdoor</a></li>
-                <li><a href="">Solid</a></li>
-                <li><a href="">Vintage</a></li>
-                <li><a href="">All Rugs</a></li>
+                <li v-for="link in topNav"><a :href="link.href">{{link.title}}</a></li>
             </ul>
             <input type="text" name="searchBar" id="search" placeholder="Search Rugs">
             <font-awesome-icon id="searchIcon" icon="search"></font-awesome-icon>
@@ -35,6 +24,27 @@
 <script>
     export default {
         name: 'globalHeader',
+        data() {
+            return {
+                custOptions: [
+                    { title: 'Order Status', href: '#' },
+                    { title: 'Wishlist', href: '#' },
+                    { title: 'Account', href: '#' },
+                    { title: '1-866-647-3965 (24/7)', href: '#' }
+                ],
+                topNav: [
+                    { title: 'Persian', href: '#' },
+                    { title: 'Oriental', href: '#' },
+                    { title: 'Clearance', href: '#' },
+                    { title: 'Modern', href: '#' },
+                    { title: 'Natural', href: '#' },
+                    { title: 'Outdoor', href: '#' },
+                    { title: 'Solid', href: '#' },
+                    { title: 'Vintage', href: '#' },
+                    { title: 'All Rugs', href: '#' }
+                ]
+            }
+        }
     }
 </script>
 
@@ -44,7 +54,7 @@
     .topBanner {
         max-width: 1100px; margin: 0 auto; position: relative; margin-top: 20px;
         #logoTag {
-            display: inline-block;
+            display: inline-block; list-style: none;
             img {
                 display: inline-block; vertical-align: middle;
                 &:nth-child(1n) {height:60px;}
@@ -52,7 +62,7 @@
             }
         }
         #custOptions {
-            list-style: none; display: inline-block; font-size: 15px; padding-left: 0; float: right;
+            list-style: none; display: inline-block; font-size: 15px; padding-left: 0; float: right; margin: 0;
             li {
                 display: inline-block; vertical-align: middle;
                 a {text-decoration: none; color: #777; padding: 0 5px}
@@ -62,13 +72,13 @@
                 }
             }
         }
-        #cart {position: absolute; display: block; right: 5px; text-decoration: none; color: @black; font-size: 22px; top: 45px;}
+        #cart {position: absolute; display: block; right: 5px; text-decoration: none; color: @black; font-size: 21px; top: 30px;}
         nav {
-            margin: 20px 0 10px; position: relative;
+            margin: 5px 0; position: relative;
             #topNav {
-                list-style: none; padding-left: 0; padding-right: 40px; display: inline-block;
+                list-style: none; padding-left: 0; padding-right: 34px; display: inline-block; margin: 10px 0 15px;
                 li {
-                    display: inline-block; padding-right: 20px;
+                    display: inline-block; padding-right: 25px;
                     a {
                           text-decoration: none; font-size: 21px; color: @lightGray;
                           &:hover {text-decoration: underline;}
@@ -76,7 +86,7 @@
                 }
             }
             #search {display: inline-block; width: 128px; font-size: 21px; padding: 5px 10px 5px 45px; border: 1px solid #e5e5e5;}
-            #searchIcon {position: absolute; right: 160px; top: 17px; font-size: 22px;}
+            #searchIcon {position: absolute; right: 155px; top: 10px; font-size: 22px;}
         }
     }
 </style>

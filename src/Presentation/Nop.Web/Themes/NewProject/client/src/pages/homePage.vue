@@ -13,7 +13,13 @@
         </ul>
 
         <img class="ftHeadline" src="//assets.rugimg.com/global/home/title-headers/title-header_shop-with-confidence.jpg" alt="Shop with Confidence" />
-        <div class="ftInfo">
+        <div class="ftInfo" id="reviews">
+            <carousel :perPage="1" :scrollPerPage="true" :paginationEnabled="false" :autoplay="true" :autoplayHoverPause="true" :autoplayTimeout="2500" :loop="true">
+                <slide v-for="review of reviews">
+                    <p>{{review.content}}</p>
+                </slide>
+            </carousel>
+            <a href="#">Read More Reviews</a>
             <img src="//assets.rugimg.com/global/home/shop-with-confidence/shop-with-confidence_2.jpg" alt="Reviews and Customer Service Info" />
         </div>
 
@@ -36,19 +42,22 @@
         </ul>
 
         <img class="ftHeadline" src="//assets.rugimg.com/global/home/title-headers/title-header_clearance.jpg" alt="Clearance Sale" />
-        <!--<ul class="ftInfo prodBlock carousel">
-        <h3>Super Deals</h3>
-        <li v-for="item in clearCarousel">
-            <a :href="item.href">
-                <img :src="item.src" :alt="item.name" />
-                <span class="name">{{item.name}}</span>
-                <div class="price">
-                    <span>{{item.strikethrough}}</span>
-                    <span>{{item.price}}</span>
-                </div>
-            </a>
-        </li>
-    </ul>-->
+        <div class="ftInfo prodBlock carousel">
+            <h3>Super Deals</h3>
+            <carousel :perPage="1" :scrollPerPage="true" :paginationPadding="5" :autoplay="true" :autoplayHoverPause="true" :autoplayTimeout="2500" :loop="true">
+                <slide v-for="item in clearCarousel">
+                    <a :href="item.href">
+                        <img :src="item.src" :alt="item.name" />
+                        <span class="name">{{item.name}}</span>
+                        <div class="price">
+                            <span>{{item.strikethrough}}</span>
+                            <span>{{item.price}}</span>
+                        </div>
+                    </a>
+                </slide>
+            </carousel>
+        </div>
+
         <div class="ftInfo">
             <h3>Clearance Deals</h3>
             <ul class="ftInfo prodBlock">
@@ -89,11 +98,14 @@
 
 <script>
     import HeroSection from '../components/heroSection.vue'; 
+    import { Carousel, Slide } from 'vue-carousel';
 
     export default {
         name: 'homePage',
         components: {
-            HeroSection 
+            HeroSection,
+            Carousel,
+            Slide
         },
         data() {
             return {
@@ -113,6 +125,12 @@
                     { name: 'Tribal Rugs', src: '//assets.rugimg.com/home_categories/tribal.jpg', href: '#' },
                     { name: 'Outdoor Rugs', src: '//assets.rugimg.com/home_categories/outdoor-4.jpg', href: '#' },
                     { name: 'Vintage Rugs', src: '//assets.rugimg.com/home_categories/vintage.jpg', href: '#' }
+                ],
+                reviews: [
+                    { content: '"I searched and searched for several weeks for 2 large area rugs. Esalerugs had so much to choose from. I finally found what I wanted and the space just comes alive with all the color."' },
+                    { content: '"Rug arrived in 2 days and was just as pictured. Colors are perfect for the area I bought it for. Price was unbelievable and am very happy with it."' },
+                    { content: '"The rug was exactly as described and looked beautiful. Very happy with the purchase."' },
+                    { content: '"Everything about my experience was first rate - beginning with navigating the website to conversation with customer service... because of the high quality rug runners, careful packing and timely delivery, I plan to purchase my next area rug from esalerugs.com."' }
                 ],
                 sizes: [
                     { name: '2x3 - 3x5', src: '//uniqueassets.s3.amazonaws.com/sizes/size_2x3-3x5.jpg', href: '#' },
@@ -135,16 +153,16 @@
                     { name: 'Shop Yellow Color Rugs', src: '//assets.rugimg.com/colors/yellow.jpg', href: '#' }
                 ],
                 clearCarousel: [
-                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3120168/300_300_0_0_midhigh_s_20_3120168_image_1010.jpg', strikethrough: '$807', price: '$109' },
-                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3120168/300_300_0_0_midhigh_s_20_3120168_image_1010.jpg', strikethrough: '$807', price: '$109' },
-                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3120168/300_300_0_0_midhigh_s_20_3120168_image_1010.jpg', strikethrough: '$807', price: '$109' },
-                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3120168/300_300_0_0_midhigh_s_20_3120168_image_1010.jpg', strikethrough: '$807', price: '$109' },
-                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3120168/300_300_0_0_midhigh_s_20_3120168_image_1010.jpg', strikethrough: '$807', price: '$109' }
+                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3123518/300_300_0_0_midhigh_s_20_3123518_image_1010.jpg', strikethrough: '$807', price: '$109' },
+                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3126043/300_300_0_0_midhigh_s_20_3126043_main.jpg', strikethrough: '$807', price: '$109' },
+                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3126289/300_300_0_0_midhigh_s_20_3126289_image_1010.jpg', strikethrough: '$807', price: '$109' },
+                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3125654/300_300_0_0_midhigh_s_20_3125654_image_1010.jpg', strikethrough: '$807', price: '$109' },
+                    { name: '5\' x 8\' Kashkuli Gabbeh Rug', href: '#', src: '//rugs.rugimg.com/3114630/300_300_0_0_midhigh_s_20_3114630_image_1010.jpg', strikethrough: '$807', price: '$109' }
                 ],
                 clearProds: [
-                    { name: '6\'x6\' Santa Fe Round Rug', href: '#', src: '//rugs.rugimg.com/3119899/300_300_0_0_midhigh_s_20_3119899_main.jpg', strikethrough: '$208', price: '$89' },
-                    { name: '2\' 7 x 10\' Classic Agra Runner Rug', href: '#', src: '//rugs.rugimg.com/3120316/300_300_0_0_midhigh_s_20_3120316_main.jpg', strikethrough: '$207', price: '$69' },
-                    { name: '9\' x 12\' Trellis Rug', href: '#', src: '//rugs.rugimg.com/3116487/300_300_0_0_midhigh_s_20_3116487_image_1010.jpg', strikethrough: '$1,596', price: '$219' }
+                    { name: '6\'x6\' Santa Fe Round Rug', href: '#', src: '//rugs.rugimg.com/3114408/300_300_0_0_midhigh_s_20_3114408_main.jpg', strikethrough: '$208', price: '$89' },
+                    { name: '2\' 7 x 10\' Classic Agra Runner Rug', href: '#', src: '//rugs.rugimg.com/3122642/300_300_0_0_midhigh_s_20_3122642_image_1010.jpg', strikethrough: '$207', price: '$69' },
+                    { name: '9\' x 12\' Trellis Rug', href: '#', src: '//rugs.rugimg.com/3114325/300_300_0_0_midhigh_s_20_3114325_main.jpg', strikethrough: '$1,596', price: '$219' }
                 ],
                 newArrivals: [
                     { name: '2\'7 x 4\' Kilim Maymana Rug', href: '#', src: '//rugs.rugimg.com/2422803/300_300_0_0_midhigh_s_20_2422803_main.jpg', discount: '50% OFF', strikethrough: '$208', price: '$89' },
@@ -181,11 +199,11 @@
         }
     }
     .ftInfo {
-        max-width: 1100px; margin: 20px auto; list-style: none; padding-left: 0; text-align: right;
+        max-width: 1100px; margin: 20px auto; list-style: none; padding-left: 0; text-align: right; position: relative;
         img {width: 100%;}
         #clearButton {display: inline-block; padding: 20px 90px 20px 60px; position: relative; margin-top: 20px; background-color: #f3f3f3; border-radius: 10px; color: #777; text-decoration: none; text-transform: uppercase; font-size: 26px;}
         svg {position: absolute; top: 16px; right: 60px;}
-        h3 {text-align: left; font-size: 32px; padding-left: 25%; font-weight: 300; margin: 0 0 30px 0;}
+        h3 {text-align: left; font-size: 32px; padding-left: 25%; font-weight: 300; margin: 0 0 35px 0;}
         #sizes {
             width: calc(87.5% / 6); margin-right: 2.5%; display: inline-block; 
             &:last-child {margin-right: 0;}
@@ -196,7 +214,7 @@
         }
         &.prodBlock {
             text-align: right;
-            li {
+            li, .VueCarousel-slide{
                 width: 25%; display: inline-block; text-align: center;
                 a {
                     text-decoration: none; color: #1966A1; font-size: 14px;
@@ -216,11 +234,23 @@
                 }
             }
             &.carousel {
-                position: relative;
-                li {position: absolute;}
+                position: relative; top: 70px;
+                h3 {padding-left: 0;}
+                .VueCarousel {position: absolute; width: 25%;}
             }
         }
     }
-    .pg {max-width: 1100px; margin: 0 auto;}
+    #reviews {
+        position: relative;
+        .VueCarousel {
+            position: absolute; width: 40%;
+            .VueCarousel-slide {max-width: 100%; text-align: left; font-size: 18px; line-height: 1.6;}
+        }
+        a {color: @lightBlue; position: absolute; bottom: 165px;}
+    }
+    .pg {max-width: 1100px; margin: 0 auto; text-decoration: none;}
    
+</style>
+<style lang="less">
+    .carousel .VueCarousel-pagination {position: absolute; text-align: left !important; top: -40px;}
 </style>
