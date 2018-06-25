@@ -8,6 +8,10 @@
                 <a :href="product.href">
                     <img :src="product.src" :alt="product.name" />
                     <span v-bind:class="{'font-14': product.name.length >= 50}">{{ product.name }}</span>
+                    <div class="hoverEffect">
+                        <h2>{{product.name}}</h2>
+                        <p>{{product.description}}</p>
+                    </div>
                 </a>
             </li>
         </ul>
@@ -110,21 +114,21 @@
         data() {
             return {
                 products: [
-                    { name: 'Shop Persian and Oriental Rugs', src: '//assets.rugimg.com/home_categories/persian-oriental.jpg', href: '#' },
-                    { name: 'Modern Rugs', src: '//assets.rugimg.com/home_categories/modern.jpg', href: '#' },
-                    { name: 'Marilyn Monroe Collection', src: '//assets.rugimg.com/home_categories/marilyn-monroe-shag-1.jpg', href: '#' },
-                    { name: 'Casablanca Rugs', src: '//assets.rugimg.com/home_categories/casablanca.jpg', href: '#' },
-                    { name: 'New Arrivals', src: '//assets.rugimg.com/home_categories/new-arrivals.jpg', href: '#' },
-                    { name: 'New Rug Collections by Former RHONY Star Jill Zarin', src: '//assets.rugimg.com/home_categories/jz-uptown.jpg', href: '#' },
-                    { name: 'Solid Rugs', src: '//assets.rugimg.com/home_categories/solid.jpg', href: '#' },
-                    { name: 'Natural Rugs', src: '//assets.rugimg.com/home_categories/natural-2.jpg', href: '#' },
-                    { name: 'Ziegler Rugs', src: '//assets.rugimg.com/home_categories/ziegler.jpg', href: '#' },
-                    { name: 'Trellis Rugs', src: '//assets.rugimg.com/home_categories/trellis.jpg', href: '#' },
-                    { name: 'Shag & Freize Rugs', src: '//assets.rugimg.com/home_categories/shag-frieze.jpg', href: '#' },
-                    { name: 'Clearance Rugs', src: '//assets.rugimg.com/home_categories/clearance.jpg', href: '#' },
-                    { name: 'Tribal Rugs', src: '//assets.rugimg.com/home_categories/tribal.jpg', href: '#' },
-                    { name: 'Outdoor Rugs', src: '//assets.rugimg.com/home_categories/outdoor-4.jpg', href: '#' },
-                    { name: 'Vintage Rugs', src: '//assets.rugimg.com/home_categories/vintage.jpg', href: '#' }
+                    { name: 'Persian and Oriental Rugs', description: 'Over 35,000 of the finest and most elegant authentic Persian & Oriental Rugs available anywhere, priced far below what you\'d find at your local boutique.We carry rugs that are tribal, silk, hand knotted, and more.', src: '//assets.rugimg.com/home_categories/persian-oriental.jpg', href: '#' },
+                    { name: 'Modern Rugs', description: 'Our most exciting designs available for a great price. Featuring geometric, abstract, over-dyed, and shag rugs.', src: '//assets.rugimg.com/home_categories/modern.jpg', href: '#' },
+                    { name: 'Marilyn Monroe Collection', description: 'Our most exciting designs available for a great price. Featuring geometric, abstract, over-dyed, and shag rugs.', src: '//assets.rugimg.com/home_categories/marilyn-monroe-shag-1.jpg', href: '#' },
+                    { name: 'Casablanca Rugs', description: 'Colors and designs that can\'t be found anywhere else, our Casablanca rugs are an exciting addition to any home.', src: '//assets.rugimg.com/home_categories/casablanca.jpg', href: '#' },
+                    { name: 'New Arrivals', description: 'Here you can find the hundreds of new rugs we add every day. Check daily to make sure you don\'t miss out on the one-of-kind pieces that sell quickly.', src: '//assets.rugimg.com/home_categories/new-arrivals.jpg', href: '#' },
+                    { name: 'New Rug Collections by Former RHONY Star Jill Zarin', description: 'Two modern rug collections inspired by New York City.', src: '//assets.rugimg.com/home_categories/jz-uptown.jpg', href: '#' },
+                    { name: 'Solid Rugs', description: 'Single color rugs that work with every room. These rugs are best sellers, and we have many sizes and colors.', src: '//assets.rugimg.com/home_categories/solid.jpg', href: '#' },
+                    { name: 'Natural Rugs', description: 'Rugs from natural materials such as sisal and jute, hand braided and woven into rugs with unique textures and design.', src: '//assets.rugimg.com/home_categories/natural-2.jpg', href: '#' },
+                    { name: 'Ziegler Rugs', description: 'High quality hand knotted rugs from Pakistan with famous designs and hand-spun wool.', src: '//assets.rugimg.com/home_categories/ziegler.jpg', href: '#' },
+                    { name: 'Trellis Rugs', description: 'Geometric, repeating patterns in two colors. These Trellis rugs are best sellers and work great in many different rooms. We have many colors and sizes for each pattern, so you\'re sure to find the one that fits your room best.', src: '//assets.rugimg.com/home_categories/trellis.jpg', href: '#' },
+                    { name: 'Shag & Freize Rugs', description: 'Explore over 350 different luxurious shag rugs in stock, starting from only $19!', src: '//assets.rugimg.com/home_categories/shag-frieze.jpg', href: '#' },
+                    { name: 'Clearance Rugs', description: 'We\'ve reduced prices even further on over 2,400 rugs! Find that perfect rug at the absolute lowest price in our Clearance section.', src: '//assets.rugimg.com/home_categories/clearance.jpg', href: '#' },
+                    { name: 'Tribal Rugs', description: 'Tribal Rugs', src: '//assets.rugimg.com/home_categories/tribal.jpg', href: '#' },
+                    { name: 'Outdoor Rugs', description: 'Outdoor Rugs', src: '//assets.rugimg.com/home_categories/outdoor-4.jpg', href: '#' },
+                    { name: 'Vintage Rugs', description: 'Vintage Rugs', src: '//assets.rugimg.com/home_categories/vintage.jpg', href: '#' }
                 ],
                 reviews: [
                     { content: '"I searched and searched for several weeks for 2 large area rugs. Esalerugs had so much to choose from. I finally found what I wanted and the space just comes alive with all the color."' },
@@ -191,11 +195,19 @@
     .thumbWrap {
         max-width: 1100px; margin: 0 auto; padding-left: 0;
         .thumb {
-            display: inline-block; width: 31.5%; margin-right: 2.75%;
+            display: inline-block; width: 31.5%; margin-right: 2.75%; position: relative;
             a {text-decoration: none; color: @lightGray;}
+            .hoverEffect {max-height: 0; transition: max-height 0.5s; color: transparent; visibility: hidden; position: absolute;}
             &:nth-child(3n) {margin-right: 0;}
             img {width: 100%;}
-            span {display: inline-block; margin: 10px 0 15px;}
+            span {display: inline-block; margin: 10px 0 15px; position: relative; z-index: 1;}
+            &:hover {
+                .hoverEffect {
+                    max-height: 100%; bottom: 47px; visibility: visible; transition: max-height 0.5s; background-color: rgba(138, 200, 89, .9); color: white; width: calc(100% - 20px); left: 0; height: calc(100% - 67px); padding: 10px;
+                    h2 {font-size: 20px;}
+                    p {line-height: 1.4; z-index: 0;}
+                }
+            }
         }
     }
     .ftInfo {
