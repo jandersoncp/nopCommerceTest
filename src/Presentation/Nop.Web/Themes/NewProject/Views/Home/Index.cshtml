@@ -1,0 +1,17 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Themes/NewProject/Views/Shared/_Root.Head.cshtml";
+}
+
+<div id="app">
+    <nav>
+        <global-header></global-header>
+    </nav>
+    <main>
+        <router-view></router-view>
+    </main>
+    <footer>
+        <global-footer></global-footer>
+    </footer>
+</div>

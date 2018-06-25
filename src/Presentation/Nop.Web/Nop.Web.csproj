@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -28,6 +29,8 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>f94c814a</NuGetPackageImportStamp>
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -613,6 +616,62 @@
     <Content Include="Scripts\selectivizr.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Themes\NewProject\client\index.js" />
+    <Content Include="Themes\NewProject\client\src\routes\routes.js" />
+    <Content Include="Themes\NewProject\client\webpack.config.js" />
+    <Content Include="Themes\NewProject\Content\css\ie8.css" />
+    <Content Include="Themes\NewProject\Content\css\print.css" />
+    <Content Include="Themes\NewProject\Content\css\styles.css" />
+    <Content Include="Themes\NewProject\Content\css\styles.rtl.css" />
+    <Content Include="Themes\NewProject\Content\images\ajax-loader-small.gif" />
+    <Content Include="Themes\NewProject\Content\images\back-button.png" />
+    <Content Include="Themes\NewProject\Content\images\calendar-next.png" />
+    <Content Include="Themes\NewProject\Content\images\calendar-prev.png" />
+    <Content Include="Themes\NewProject\Content\images\close.png" />
+    <Content Include="Themes\NewProject\Content\images\compare-button.png" />
+    <Content Include="Themes\NewProject\Content\images\details.png" />
+    <Content Include="Themes\NewProject\Content\images\discontinued-product-icon.png" />
+    <Content Include="Themes\NewProject\Content\images\download-button.png" />
+    <Content Include="Themes\NewProject\Content\images\edit.png" />
+    <Content Include="Themes\NewProject\Content\images\edit_.png" />
+    <Content Include="Themes\NewProject\Content\images\email-button.png" />
+    <Content Include="Themes\NewProject\Content\images\first.png" />
+    <Content Include="Themes\NewProject\Content\images\ie_warning.jpg" />
+    <Content Include="Themes\NewProject\Content\images\last.png" />
+    <Content Include="Themes\NewProject\Content\images\loading.gif" />
+    <Content Include="Themes\NewProject\Content\images\logo.png" />
+    <Content Include="Themes\NewProject\Content\images\menu-icon.png" />
+    <Content Include="Themes\NewProject\Content\images\move.png" />
+    <Content Include="Themes\NewProject\Content\images\new.png" />
+    <Content Include="Themes\NewProject\Content\images\next.png" />
+    <Content Include="Themes\NewProject\Content\images\pointer.png" />
+    <Content Include="Themes\NewProject\Content\images\prev.png" />
+    <Content Include="Themes\NewProject\Content\images\rating1.png" />
+    <Content Include="Themes\NewProject\Content\images\rating2.png" />
+    <Content Include="Themes\NewProject\Content\images\remove.png" />
+    <Content Include="Themes\NewProject\Content\images\remove_.png" />
+    <Content Include="Themes\NewProject\Content\images\reply.png" />
+    <Content Include="Themes\NewProject\Content\images\return.png" />
+    <Content Include="Themes\NewProject\Content\images\rss.png" />
+    <Content Include="Themes\NewProject\Content\images\shipping.png" />
+    <Content Include="Themes\NewProject\Content\images\shopping-bag.png" />
+    <Content Include="Themes\NewProject\Content\images\social-sprite.png" />
+    <Content Include="Themes\NewProject\Content\images\subscribe-button.png" />
+    <Content Include="Themes\NewProject\Content\images\toggle-black.png" />
+    <Content Include="Themes\NewProject\Content\images\toggle-gray.png" />
+    <Content Include="Themes\NewProject\Content\images\toggle-white.png" />
+    <Content Include="Themes\NewProject\Content\images\topic-type1.png" />
+    <Content Include="Themes\NewProject\Content\images\topic-type2.png" />
+    <Content Include="Themes\NewProject\Content\images\topic-type3.png" />
+    <Content Include="Themes\NewProject\Content\images\view-grid.png" />
+    <Content Include="Themes\NewProject\Content\images\view-list.png" />
+    <Content Include="Themes\NewProject\Content\images\vote-down-selected.png" />
+    <Content Include="Themes\NewProject\Content\images\vote-down.png" />
+    <Content Include="Themes\NewProject\Content\images\vote-up-selected.png" />
+    <Content Include="Themes\NewProject\Content\images\vote-up.png" />
+    <Content Include="Themes\NewProject\Content\images\watch.png" />
+    <Content Include="Themes\NewProject\Content\images\wishlist-button.png" />
+    <Content Include="Themes\NewProject\preview.jpg" />
     <Content Include="Themes\DefaultClean\Content\css\ie8.css" />
     <Content Include="Themes\DefaultClean\Content\css\styles.css" />
     <Content Include="Themes\DefaultClean\Content\css\styles.rtl.css" />
@@ -992,9 +1051,22 @@
     <Content Include="Views\Product\CustomerProductReviews.cshtml" />
     <Content Include="Views\Vendor\Info.cshtml" />
     <Content Include="Views\Common\Logo.cshtml" />
+    <Content Include="Themes\NewProject\theme.config" />
+    <Content Include="Themes\NewProject\Views\Web.config" />
+    <Content Include="Themes\NewProject\Views\Home\Index.cshtml" />
+    <Content Include="Themes\NewProject\client\.babelrc" />
+    <Content Include="Themes\NewProject\client\package.json" />
+    <Content Include="Themes\NewProject\client\src\components\globalHeader.vue" />
+    <Content Include="Themes\NewProject\Views\Shared\_Root.Head.cshtml" />
+    <Content Include="Themes\NewProject\client\src\global.less" />
+    <Content Include="Themes\NewProject\client\src\normalize.less" />
+    <Content Include="Themes\NewProject\client\src\components\heroSection.vue" />
+    <Content Include="Themes\NewProject\client\src\pages\homePage.vue" />
+    <Content Include="Themes\NewProject\client\src\components\globalFooter.vue" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />
+    <Folder Include="Themes\NewProject\client\dist\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj">
@@ -1190,11 +1262,15 @@
   <ItemGroup>
     <Content Include="Views\Catalog\VendorAll.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

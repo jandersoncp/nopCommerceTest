@@ -1,0 +1,30 @@
+﻿@import "normalize";
+
+// Global Colors
+@black: #000;
+@lightGray: #777;
+@lightBlue: #1966A1;
+
+// Global mixins
+.clearfix {
+    zoom: 1;
+
+    &:before, &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.font-18 {font-size: 18px;}
+.font-14 {font-size: 14px;}
+.font-36 {font-size: 36px;}
+
+// Global fonts
+* {font-family: Arial, Helvetica, sans-serif;}
+
+// Global styles
+body {margin: 0;}
